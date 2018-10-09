@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node_modules/.bin/webpack --watch  --mode development",
+    "prod": "node_modules/.bin/webpack --watch  --mode production",
+    "start": "nodemon server/server.js --exec babel-node"
   },
   "repository": {
     "type": "git",
@@ -37,10 +39,12 @@
     "scrollmagic": "^2.0.6"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
     "@fortawesome/fontawesome-free": "^5.4.0",
-    "babel": "^6.23.0",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
     "babel-loader": "^8.0.4",
     "chai": "^4.2.0",
     "css-loader": "^1.0.0",
@@ -48,6 +52,7 @@
     "nodemon": "^1.18.4",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "webpack": "^4.20.2"
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
   }
 }
