@@ -28,6 +28,8 @@
   
   * git clone (clone repository).
   * npm install (In the same folder).
+  * npm run dev 
+  * npm start
   * open the port 8080. 
   
   # Generating new Components.
