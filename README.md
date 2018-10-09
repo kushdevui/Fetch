@@ -32,12 +32,10 @@
   * npm start
   * open the port 8080. 
   
-  # Generating new Components.
-    * we will be generating components mannually make sure we do not mention wrong spelling and wrong prefix or sufix.
-    * component folder name will be example : - componentName
-    * component file name will be component_name.js or css 
-    
-    ......
+  # Generating new Components
   
+  * we will be generating components mannually make sure we do not mention wrong spelling and wrong prefix or sufix.
+  * component folder name will be example : - componentName
+  * component file name will be component_name.js or css 
   
     
