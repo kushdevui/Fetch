@@ -32,6 +32,9 @@
   * npm start
   * open the port 8080. 
   
+  # How to clean up
+  * npm run clean
+  
   # Generating new Components
   
   * we will be generating components mannually make sure we do not mention wrong spelling and wrong prefix or sufix.
