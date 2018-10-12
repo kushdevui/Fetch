@@ -8,7 +8,5 @@ const App = ()=> {
     )
 }
 
-asdasd;gfhj=dgtdgtdsgt90-9-ghjgfhu8768768tuhmghmgh
-
 export default App;
 
