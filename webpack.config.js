@@ -26,6 +26,9 @@ var _output = {
     filename : 'fetch.[name].[chunkhash].js'
 };
 
+// Devtool for source mapping
+var _devtool = 'source-map';
+
 // Webpack Modules & Loaders
 var _module = {
     rules: [
@@ -38,7 +41,7 @@ var _module = {
             test : /\.scss$/,
             use: extractTextPlugin.extract({
                 fallback : 'style-loader',
-                use :  ['css-loader' , 'sass-loader']
+                use :  ['css-loader' , 'postcss-loader' , 'sass-loader']
                 
             })
             
@@ -88,8 +91,10 @@ var config = {
 
     plugins: _plugins,
 
-    optimization : _optimization
+    optimization : _optimization,
 
+    devtool: _devtool
+ 
 }
 
 
