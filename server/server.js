@@ -13,14 +13,15 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config';
 const DEV_LOCALHOST_PORT = 8080;
+const compiler = webpack(webpackConfig);
 
 
-/**
- * Entry point for webpack config
- * 
- */
-webpackConfig.entry["server"] = "webpack/hot/dev-server";
-webpackConfig.entry["client"] = "webpack-hot-middleware/client";
+// /**
+//  * Entry point for webpack config
+//  * 
+//  */
+// webpackConfig.entry["server"] = "webpack/hot/dev-server";
+// webpackConfig.entry["client"] = "webpack-hot-middleware/client";
 
 
 
@@ -29,6 +30,11 @@ var app = express();
 
 
 // Middlewares
+app.use(webpackDevMiddleware(compiler , {
+    noInfo : true,
+    publicPath : webpackConfig.output.publicPath
+}));
+app.use(webpackHotMiddleware(compiler));
 app.use(cors());
 app.use(express.static(path.join(__dirname , "../dist")));
 
