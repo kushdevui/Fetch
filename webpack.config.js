@@ -12,18 +12,19 @@ var htmlWebpackPlugin = require('html-webpack-plugin');
 var extractTextPlugin = require('extract-text-webpack-plugin');
 var BUILD_DIR = path.join(__dirname , './dist');
 var APP_DIR = path.join(__dirname , './src');
-const VENDOR_LIBS = [ 'react' , 'react-dom' , 'axios' , 'bootstrap' , 'react-slick'];
+const VENDOR_LIBS = [ 'react' , 'react-dom' , 'axios' , 'bootstrap' , 'react-slick' , 'react-hot-loader'];
 
 // Entry points
 var _entry = {
-    bundle : APP_DIR + '/index.js',
+    bundle : ['webpack-hot-middleware/client' , 'webpack/hot/dev-server', APP_DIR + '/index.js'],
     vendor :  VENDOR_LIBS
 };
 
 // Output files
 var _output = {
     path: BUILD_DIR,
-    filename : 'fetch.[name].[chunkhash].js'
+    filename : 'fetch.[name].[hash].js',
+    publicPath : '/'
 };
 
 // Devtool for source mapping
@@ -58,7 +59,8 @@ var _plugins = [
     new extractTextPlugin('styles/fetch.[name].css'),
     new htmlWebpackPlugin({
         template: APP_DIR + '/index.html'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
 ];
 
 var _optimization = {
@@ -93,7 +95,9 @@ var config = {
 
     optimization : _optimization,
 
-    devtool: _devtool
+    devtool: _devtool,
+
+    mode : 'development'
  
 }
 
