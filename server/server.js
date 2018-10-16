@@ -32,9 +32,12 @@ var app = express();
 // Middlewares
 app.use(webpackDevMiddleware(compiler , {
     noInfo : true,
-    publicPath : webpackConfig.output.publicPath
+    publicPath : webpackConfig.output.publicPath,
+    stats : { color : true }
 }));
-app.use(webpackHotMiddleware(compiler));
+app.use(webpackHotMiddleware(compiler , {
+    log : console.log
+}));
 app.use(cors());
 app.use(express.static(path.join(__dirname , "../dist")));
 

@@ -12,13 +12,17 @@ var htmlWebpackPlugin = require('html-webpack-plugin');
 var extractTextPlugin = require('extract-text-webpack-plugin');
 var BUILD_DIR = path.join(__dirname , './dist');
 var APP_DIR = path.join(__dirname , './src');
+const mode = process.env.NODE_ENV || "development";
+const isDev = mode === "development";
 const VENDOR_LIBS = [ 'react' , 'react-dom' , 'axios' , 'bootstrap' , 'react-slick' , 'react-hot-loader'];
 
 // Entry points
 var _entry = {
-    bundle : ['webpack-hot-middleware/client' , 'webpack/hot/dev-server', APP_DIR + '/index.js'],
+    bundle :  [APP_DIR + '/index.js'],
     vendor :  VENDOR_LIBS
 };
+
+_entry['bundle'].push("webpack-hot-middleware/client");
 
 // Output files
 var _output = {
@@ -40,7 +44,7 @@ var _module = {
         },
         {
             test : /\.scss$/,
-            use: extractTextPlugin.extract({
+            use: isDev ? ['style-loader' , 'css-loader' , 'postcss-loader' , 'sass-loader'] : extractTextPlugin.extract({
                 fallback : 'style-loader',
                 use :  ['css-loader' , 'postcss-loader' , 'sass-loader']
                 
@@ -97,7 +101,7 @@ var config = {
 
     devtool: _devtool,
 
-    mode : 'development'
+    mode : mode
  
 }
 
