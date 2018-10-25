@@ -19,7 +19,7 @@ const users_schema = mongoose.Schema({
     user_id : {
         type : String,
         required : true,
-        unique : true
+        unique
     },
     user_name : {
         user_first_name : {
@@ -76,4 +76,4 @@ const users_schema = mongoose.Schema({
     }
 });
 
-export default users_schema;
+export default mongoose.model('users' , users_schema);
