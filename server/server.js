@@ -9,11 +9,13 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import webpack from 'webpack';
+import mongoose from 'mongoose';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config';
 const DEV_LOCALHOST_PORT = 8080;
 const compiler = webpack(webpackConfig);
+const db = `fetch`;
 
 
 // /**
@@ -40,6 +42,20 @@ app.use(webpackHotMiddleware(compiler , {
 }));
 app.use(cors());
 app.use(express.static(path.join(__dirname , "../dist")));
+
+// Mongoose connection
+mongoose.connect(`mongodb://localhost:27017/${db}` , { useNewUrlParser: true }).then(
+    () => {
+        console.log('MONGODB connection successfull!')
+    },
+    err => {
+        console.err(`!!!!ERROR!!!! Occurred connecting to MONGODB : ${err}`);
+        throw err;
+    }
+);  
+
+// Get Mongoose to use the global promise library
+mongoose.Promise = global.Promise;
 
 
 /**
