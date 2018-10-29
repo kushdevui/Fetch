@@ -16,17 +16,6 @@ import webpackConfig from '../webpack.config';
 const DEV_LOCALHOST_PORT = 8080;
 const compiler = webpack(webpackConfig);
 const db = `fetch`;
-import model from '../model/model';
-console.log(model);
-
-
-// /**
-//  * Entry point for webpack config
-//  * 
-//  */
-// webpackConfig.entry["server"] = "webpack/hot/dev-server";
-// webpackConfig.entry["client"] = "webpack-hot-middleware/client";
-
 
 
 // Express app
@@ -59,16 +48,6 @@ mongoose.connect(`mongodb://localhost:27017/${db}` , { useNewUrlParser: true }).
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
 
-// Example mongo
-app.get('/kush' , (req , res) => {
-    model.user.save((err) => {
-        if(err) {
-            throw err;
-        } else {
-            console.log("User saved successfully");
-        }
-    })
-});
 
 
 /**

@@ -1,12 +1,14 @@
 import React from 'react';
 import './app.scss';
 import { hot } from 'react-hot-loader';
+import Routes from '../routes';
+import { BrowserRouter } from 'react-router-dom';
 
 const App = ()=> {
     return(
-        <div className="header">
-            <h1>Hello world!!</h1> 
-        </div>
+        <BrowserRouter>
+            <Routes></Routes>
+        </BrowserRouter>
     )
 }
 
