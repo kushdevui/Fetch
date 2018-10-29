@@ -14,7 +14,7 @@ var BUILD_DIR = path.join(__dirname , './dist');
 var APP_DIR = path.join(__dirname , './src');
 const mode = process.env.NODE_ENV || "development";
 const isDev = mode === "development";
-const VENDOR_LIBS = [ 'react' , 'react-dom' , 'axios' , 'bootstrap' , 'react-slick' , 'react-hot-loader'];
+const VENDOR_LIBS = [ 'react' , 'react-dom' , 'axios' , 'react-bootstrap' , 'react-slick' , 'react-hot-loader' , 'react-router-dom'];
 
 // Entry points
 var _entry = {

@@ -8,7 +8,7 @@ import Home from './components/Home/home';
 class Routes extends Component {
     render() {
         return (
-            <div>
+            <div className="container-fluid">
                 <Switch>
                     <Route path="/" exact  component={Home}/>
                 </Switch>
