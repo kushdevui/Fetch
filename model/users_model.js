@@ -18,8 +18,7 @@ const users_schema = mongoose.Schema({
     _id : mongoose.Schema.Types.ObjectId,
     user_id : {
         type : String,
-        required : true,
-        unique
+        required : true
     },
     user_name : {
         user_first_name : {
