@@ -1,18 +1,18 @@
 import React from 'react';
-import { Grid, Row, Col, Clearfix } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button , Container, Row, Col } from 'reactstrap';
+
 
 const Home = () =>{
     return(
-        <Grid>
-            <Row className="show-grid">
-                <Col xs={12} md={8}>
-                <code>{'<Col xs={12} md={8} />'};</code>
-                </Col>
-                <Col xs={6} md={4}>
-                <code>{'<Col xs={6} md={4} />'}</code>
-                </Col>
-            </Row>
-        </Grid>
+        <Container>
+        <Row>
+          <Col>
+          <Button color="primary">primary</Button>{' '}
+        
+          </Col>
+        </Row>
+      </Container>
     )
 }
 
