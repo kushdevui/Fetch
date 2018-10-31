@@ -54,6 +54,13 @@ var _module = {
         {
             test : /\.(jpe?g|png|gif|svg)$/i,
             use : 'file-loader'
+        },
+        {
+            test : /\.css$/,
+            use : isDev ? ['style-loader' , 'css-loader'] : extractTextPlugin.extract({
+                fallback : 'style-loader' ,
+                use : 'css-loader'
+            })
         }
     ]
 };
