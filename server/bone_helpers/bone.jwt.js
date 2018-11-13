@@ -4,5 +4,5 @@
 
 
 //  Dependencies
-import expressJwt from 'expressJwt';
-import config from './bone.db.config';
+// import expressJwt from 'expressJwt';
+import config from './bone.config';

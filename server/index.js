@@ -42,7 +42,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // use JWT auth to secure the api
-app.use(jwt());
+//app.use(jwt());
 
 // Hosting Static Files
 app.use(express.static(path.join(__dirname , "../dist")));
@@ -51,7 +51,7 @@ app.use(express.static(path.join(__dirname , "../dist")));
 app.use( '/bone' , Routes);
 
 // global error handler
-app.use(errorHandler);
+// app.use(errorHandler);
 
 
 /**

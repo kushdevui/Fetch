@@ -5,10 +5,10 @@
 //  Dependencies
 import express from 'express';
 import usersController from './users/users.controller';
+import router from './users/users.controller';
 
 
 const fetch_router = express.Router();
-const app = express();
 
 // Home Page Route
 fetch_router.get( '/' , ( req , res , next ) => {
@@ -17,7 +17,7 @@ fetch_router.get( '/' , ( req , res , next ) => {
 });
 
 // Users Endpoint
-app.use( '/users' , usersController);
+fetch_router.use( '/users' , usersController);
 
 
 
