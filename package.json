@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node_modules/.bin/webpack --watch  --mode development",
     "prod": "node_modules/.bin/webpack --watch  --mode production",
-    "start": "nodemon --ignore src/ --exec babel-node server/server.js",
+    "start": "nodemon --ignore src/ --exec babel-node server/index.js",
     "clean": "rimraf dist"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "eslint": "^5.6.1",
     "express": "^4.16.3",
     "express-ejs-layouts": "^2.5.0",
+    "express-jwt": "^5.3.1",
     "jquery": "^3.3.1",
     "mongodb": "^3.1.6",
     "mongoose": "^5.3.2",
