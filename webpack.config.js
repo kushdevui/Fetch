@@ -4,12 +4,12 @@
  * 
  */
 
-
 // Dependencies
 var webpack = require('webpack');
 var path = require('path');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var extractTextPlugin = require('extract-text-webpack-plugin');
+const copyWebpackPlugin = require('copy-webpack-plugin');
 var BUILD_DIR = path.join(__dirname , './dist');
 var APP_DIR = path.join(__dirname , './src');
 const mode = process.env.NODE_ENV || "development";
@@ -53,7 +53,14 @@ var _module = {
         },
         {
             test : /\.(jpe?g|png|gif|svg)$/i,
-            use : 'file-loader'
+            use : [
+                {
+                    loader : 'file-loader',
+                    options : {
+                        name : '[path][name].[ext]'
+                    }
+                }
+            ]
         },
         {
             test : /\.css$/,
@@ -71,8 +78,11 @@ var _plugins = [
     new htmlWebpackPlugin({
         template: APP_DIR + '/index.html'
     }),
-    new webpack.HotModuleReplacementPlugin()
-];
+    new webpack.HotModuleReplacementPlugin(),
+    new copyWebpackPlugin(
+        [{ from : APP_DIR + '/assets' , to : BUILD_DIR + '/assets'}]
+    )
+];  
 
 var _optimization = {
     splitChunks: {

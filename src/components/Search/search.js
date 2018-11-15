@@ -15,7 +15,11 @@ class Search extends Component {
     render () {
         return (
             <Container className = "search-container">
-                Search
+                <Row>
+                    <Col>
+                        asdf
+                    </Col>
+                </Row>
             </Container>
         )
     }

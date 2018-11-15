@@ -3,7 +3,7 @@ import { breakpoints } from '../../../../config';
 class ResponsiveUtil {
     
     constructor(){
-        this.viewPort;
+        this.viewport;
     }
 
     init(){
@@ -16,14 +16,14 @@ class ResponsiveUtil {
     }
 
     viewPortSelector(){
-        if(window.innerWidth > breakpoints.desktop){
-            this.viewPort='Desktop'
+        if(window.innerWidth >= breakpoints.desktop){
+            this.viewport='Desktop'
         }
-        else if(window.innerWidth > breakpoints.mobile){
-            this.viewPort='Tablet'
+        else if(window.innerWidth >= breakpoints.tablet){
+            this.viewport='Tablet'
         }
-        else if(window.innerWidth < breakpoints.mobile){
-            this.viewPort='Mobile'
+        else if(window.innerWidth <= breakpoints.mobile){
+            this.viewport='Mobile'
         }
 
     }
