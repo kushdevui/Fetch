@@ -6,13 +6,11 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { Button , Container, Row, Col } from 'reactstrap';
-import Logo  from '../Logo/logo' ;
-
-// Styles & Images
-import './navbar.scss';
-
-import {
+import { 
+    Button , 
+    Container, 
+    Row, 
+    Col,  
     Collapse,
     NavbarBrand,
     Navbar,
@@ -23,8 +21,11 @@ import {
     UncontrolledDropDown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem
-} from 'reactstrap';
+    DropdownItem } from 'reactstrap';
+import Logo  from '../Logo/logo' ;
+
+// Styles & Images
+import './navbar.scss';
 
 class  NavigationBar extends Component {
 

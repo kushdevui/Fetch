@@ -38,6 +38,12 @@ var _devtool = 'source-map';
 var _module = {
     rules: [
         {
+            enforce: 'pre',
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: 'eslint-loader'
+        },
+        {
             test : /\.js$/,
             exclude: [/node_modules/],
             use: 'babel-loader'
@@ -52,15 +58,8 @@ var _module = {
             
         },
         {
-            test : /\.(jpe?g|png|gif|svg)$/i,
-            use : [
-                {
-                    loader : 'file-loader',
-                    options : {
-                        name : '[path][name].[ext]'
-                    }
-                }
-            ]
+            test : /\.(jpe?g|png|gif|svg)$/,
+            use : 'file-loader'
         },
         {
             test : /\.css$/,
