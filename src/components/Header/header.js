@@ -1,10 +1,20 @@
+/**
+ *  Header Component
+ */
+
+
+// Dependencies
 import React, {Component} from 'react';
+import Search from '../Search/search';
 import ResponsiveUtils from '../Widgets/ResponsiveUtils/responsiveUtils';
+
+// Styles & Images
 import './header.scss';
-import Background from '../../../public/assets/images/walking-dog-bg.png';
+import Background from '../../assets/images/walking-dog-bg.png';
+
 
 var bgImage = {
-    backgroundImage: "url(" + Background + ")",
+    backgroundImage: `url(${Background})`
 }
 
 class Header extends Component  {
@@ -36,10 +46,11 @@ class Header extends Component  {
     render(){
         return(
             <div style={bgImage} className="header">
-                
+                <Search />
             </div>
         )
     }
 }
 
+// Exporting the Header Component
 export default Header;

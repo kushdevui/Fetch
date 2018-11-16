@@ -1,21 +1,23 @@
 /**
  * EXPRESS SERVER FILE
  * Author: Rajat Kumar
- * 
+ *
  */
 
 // Dependencies
 import express from 'express';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 import path from 'path';
 import webpack from 'webpack';
-import mongoose from 'mongoose';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config';
+import Routes from './fetch_routes';
+import errorHandler from './bone_helpers/bone.error_handler';
+import jwt from './bone_helpers/bone.jwt';
 const DEV_LOCALHOST_PORT = 8080;
 const compiler = webpack(webpackConfig);
-const db = `fetch`;
 
 
 // Express app
@@ -28,26 +30,28 @@ app.use(webpackDevMiddleware(compiler , {
     publicPath : webpackConfig.output.publicPath,
     stats : { color : true }
 }));
+
 app.use(webpackHotMiddleware(compiler , {
     log : console.log
 }));
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bodyParser.json());
+
 app.use(cors());
+
+// use JWT auth to secure the api
+//app.use(jwt());
+
+// Hosting Static Files
 app.use(express.static(path.join(__dirname , "../dist")));
 
-// Mongoose connection
-mongoose.connect(`mongodb://localhost:27017/${db}` , { useNewUrlParser: true }).then(
-    () => {
-        console.log('MONGODB connection successfull!')
-    },
-    err => {
-        console.err(`!!!!ERROR!!!! Occurred connecting to MONGODB : ${err}`);
-        throw err;
-    }
-);  
+// API end points
+app.use( '/bone' , Routes);
 
-// Get Mongoose to use the global promise library
-mongoose.Promise = global.Promise;
-
+// global error handler
+// app.use(errorHandler);
 
 
 /**
