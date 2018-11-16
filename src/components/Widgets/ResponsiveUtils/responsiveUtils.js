@@ -1,9 +1,9 @@
-import { breakpoints } from '../../../../config';
+import { breakpoints } from "../../../../config";
 
 class ResponsiveUtil {
     
     constructor(){
-        this.viewPort;
+        this.viewport = {};
     }
 
     init(){
@@ -15,17 +15,31 @@ class ResponsiveUtil {
         });
     }
 
+    resetViewPort() {
+        this.viewport = {
+            isMobile : false,
+            isTablet : false,
+            isDesktop : false
+        };
+    }
+
     viewPortSelector(){
-        if(window.innerWidth > breakpoints.desktop){
-            this.viewPort='Desktop'
+        this.resetViewPort();
+
+        if(window.innerWidth >= breakpoints.desktop){
+            this.viewport.isDesktop = true;
         }
-        else if(window.innerWidth > breakpoints.mobile){
-            this.viewPort='Tablet'
+        else if(window.innerWidth >= breakpoints.tablet){
+            this.viewport.isTablet = true;
         }
-        else if(window.innerWidth < breakpoints.mobile){
-            this.viewPort='Mobile'
+        else if(window.innerWidth <= breakpoints.mobile){
+            this.viewport.isMobile = true;
         }
 
+    }
+
+    getViewPort () {
+        return this.viewport;
     }
 }
 
