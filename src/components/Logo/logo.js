@@ -1,3 +1,8 @@
+/**
+ *  Home Component { Rendering brand logo and optimize it as per the viewport }
+ */
+
+// Dependencies
 import React from 'react';
 
 const Logo = (props) =>{

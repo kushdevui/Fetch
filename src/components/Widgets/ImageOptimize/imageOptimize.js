@@ -7,7 +7,7 @@ class ImageOptimize {
     }
 
     optimizeImage(){
-        if(this.props.viewport== "Mobile"){
+        if(this.props.viewport== breakpoints.mobile){
             return this.props.mobile_image
         }
         else{
