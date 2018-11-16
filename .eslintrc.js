@@ -4,7 +4,10 @@ module.exports = {
         "commonjs": true,
         "es6": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+                "eslint:recommended",
+                "plugin:react/recommended" 
+               ],
     "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
@@ -37,6 +40,8 @@ module.exports = {
         "no-multiple-empty-lines": "warn",
         "no-var" : "error",
         "prefer-const" : "error",
-        "no-console" : "warn"
+        "no-console" : "warn",
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error"
     }
 };

@@ -3,15 +3,14 @@
  */
 
 // Dependencies
-import React, {Component} from 'react';
-import Search from '../Search/search';
-import ResponsiveUtils from '../Widgets/ResponsiveUtils/responsiveUtils';
-import ImageOptimize from '../../components/Widgets/ImageOptimize/imageOptimize'
-import NavigationBar from '../Navbar/navbar';
-import { Button , Container, Row, Col } from 'reactstrap';
+import React, {Component} from "react";
+import ResponsiveUtils from "../Widgets/ResponsiveUtils/responsiveUtils";
+import ImageOptimize from "../../components/Widgets/ImageOptimize/imageOptimize";
+import NavigationBar from "../Navbar/navbar";
+import { Container, Row, Col } from "reactstrap";
 
 // Styles & Images
-import './header.scss';
+import "./header.scss";
 
 
 
@@ -32,8 +31,8 @@ class Header extends Component  {
             this.responsiveUtils.viewPortSelector();
             this.setState ({
                 viewport : this.responsiveUtils.getViewPort()
-            })
-        }
+            });
+        };
         // Component starts listening to 'resize' and 'onOrientationChange' events
         this.responsiveUtils.init();
 
@@ -43,14 +42,14 @@ class Header extends Component  {
         //Optimizing Image as per the viewPort.
 
         this.imageOptimizer = new ImageOptimize({
-            mobile_image : '../../assets/images/walking-dog-bg-320.png', 
-            large_image : '../../assets/images/walking-dog-bg.png', 
+            mobile_image : "../../assets/images/walking-dog-bg-320.png", 
+            large_image : "../../assets/images/walking-dog-bg.png", 
             viewport : this.state.viewport
-        })
+        });
 
         this.bgImage = {
             backgroundImage: `url(${this.imageOptimizer.optimizeImage()})`
-        }
+        };
 
     }
 
@@ -68,7 +67,7 @@ class Header extends Component  {
                     </h1>
                 </Container>
             </div>
-        )
+        );
     }
 }
 

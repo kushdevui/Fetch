@@ -4,13 +4,12 @@
 
 
 // Dependencies
-import React from 'react';
-import { Button , Container, Row, Col } from 'reactstrap';
-import Header from '../Header/header';
+import React from "react";
+import Header from "../Header/header";
 
 // Styles & Images
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './home.scss';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./home.scss";
 
 
 const Home = () =>{
@@ -18,7 +17,7 @@ const Home = () =>{
         <Header>
             
         </Header>
-    )
-}
+    );
+};
 
 export default Home;

@@ -1,4 +1,4 @@
-import { breakpoints } from '../../../../config';
+import { breakpoints } from "../../../../config";
 
 class ResponsiveUtil {
     
@@ -20,14 +20,14 @@ class ResponsiveUtil {
             isMobile : false,
             isTablet : false,
             isDesktop : false
-        }
+        };
     }
 
     viewPortSelector(){
         this.resetViewPort();
 
         if(window.innerWidth >= breakpoints.desktop){
-            this.viewport.isDesktop = true
+            this.viewport.isDesktop = true;
         }
         else if(window.innerWidth >= breakpoints.tablet){
             this.viewport.isTablet = true;

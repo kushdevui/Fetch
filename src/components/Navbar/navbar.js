@@ -3,29 +3,21 @@
  */
 
 // Dependencies
-import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { 
-    Button , 
-    Container, 
-    Row, 
-    Col,  
     Collapse,
     NavbarBrand,
     Navbar,
-    NavbarToggler,
     Nav,
     NavItem,
-    NavLink,
-    UncontrolledDropDown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem } from 'reactstrap';
-import Logo  from '../Logo/logo' ;
+    NavLink
+    } from "reactstrap";
+import Logo  from "../Logo/logo" ;
 
 // Styles & Images
-import './navbar.scss';
+import "./navbar.scss";
 
 class  NavigationBar extends Component {
 
@@ -44,8 +36,7 @@ class  NavigationBar extends Component {
         this.setState({
             isOpen: !this.state.isOpen,
             isActive: !this.state.isActive
-        })
-        
+        });
     }
 
     render(){
@@ -69,8 +60,8 @@ class  NavigationBar extends Component {
                     </Collapse>
                 </Navbar>
             </div>
-        )
-    }   
+        );
+    }
 }
 
 //exporting the module

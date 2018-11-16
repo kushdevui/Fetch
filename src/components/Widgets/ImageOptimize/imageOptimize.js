@@ -7,10 +7,10 @@ class ImageOptimize {
 
     optimizeImage(){
         if(this.props.viewport.isMobile){
-            return this.props.mobile_image
+            return this.props.mobile_image;
         }
         else{
-            return this.props.large_image
+            return this.props.large_image;
         }
     }
 
