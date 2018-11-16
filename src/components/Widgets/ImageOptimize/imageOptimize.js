@@ -1,5 +1,4 @@
 //optimize images according to view port changes.
-import { breakpoints } from '../../../../config';
 
 class ImageOptimize {
     constructor(props){
@@ -7,7 +6,7 @@ class ImageOptimize {
     }
 
     optimizeImage(){
-        if(this.props.viewport== breakpoints.mobile){
+        if(this.props.viewport.isMobile){
             return this.props.mobile_image
         }
         else{

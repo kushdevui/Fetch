@@ -56,7 +56,7 @@ class  NavigationBar extends Component {
                     </NavbarBrand>
                     <FontAwesomeIcon className={"d-sm-none " + (this.state.isActive ? "toggle-animate": "toggle-animate-inactive")} onClick={this.toggle} icon={faAngleDown} color="white" size="2x"/>
                     <Collapse className={this.state.isOpen ? "show-collapse" : ""} navbar>
-                    <FontAwesomeIcon  onClick={this.toggle}  className="close" icon={faTimes} color="black" size="1x"/>
+                    <FontAwesomeIcon  onClick={this.toggle}  className="close d-sm-none" icon={faTimes} color="black" size="1x"/>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
                                 <NavLink href="#">Become a Sitter</NavLink>

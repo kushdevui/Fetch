@@ -21,7 +21,7 @@ class Header extends Component  {
         super();
 
         this.state = {
-            viewport : ''
+            viewport : {}
         };
 
         this.responsiveUtils = new ResponsiveUtils();
@@ -31,7 +31,7 @@ class Header extends Component  {
         this.responsiveUtils.__proto__.onResize = () => {
             this.responsiveUtils.viewPortSelector();
             this.setState ({
-                viewport : this.responsiveUtils.viewport
+                viewport : this.responsiveUtils.getViewPort()
             })
         }
         // Component starts listening to 'resize' and 'onOrientationChange' events
