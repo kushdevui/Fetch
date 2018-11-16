@@ -16,11 +16,12 @@
 }
 @include media-breakpoint-down(sm) { 
     .header{
-        min-height: 9.5rem;
-        height:9.5rem;
+        min-height: 15rem;
+        height:15rem;
         h1{
             font-family: $font-stack;
             font-size: 2rem;
+            font-weight: 100;
         }
     }
 }
