@@ -13,8 +13,6 @@ import { Container, Row, Col } from "reactstrap";
 import "./header.scss";
 
 
-
-
 class Header extends Component  {
     constructor(){
         super();
