@@ -13,8 +13,6 @@ import { Container, Row, Col } from "reactstrap";
 import "./header.scss";
 
 
-
-
 class Header extends Component  {
     constructor(){
         super();
@@ -62,7 +60,7 @@ class Header extends Component  {
                             <NavigationBar/>
                         </Col>
                     </Row>
-                    <h1 xs="12" className="d-sm-none pt-1 pl-1 text-white">
+                    <h1 xs="12" className="d-sm-none pt-5 text-white">
                         Love & care, when you’re not there
                     </h1>
                 </Container>
