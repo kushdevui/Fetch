@@ -14,6 +14,7 @@ import {
     NavItem,
     NavLink
     } from "reactstrap";
+    
 import Logo  from "../Logo/logo" ;
 
 // Styles & Images
@@ -42,7 +43,7 @@ class  NavigationBar extends Component {
     render(){
         return(
             <div className="navbar-section">
-                <Navbar color="transparent" light expand="md">
+                <Navbar className="p-0" color="transparent" light expand="md">
                     <NavbarBrand href="/">
                         <Logo/>
                     </NavbarBrand>
