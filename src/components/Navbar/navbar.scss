@@ -7,31 +7,6 @@
     .navbar-nav{
         .nav-link{
             &:hover{
-                color:white;
-            }
-            &:active {
-                color : white;
-            }
-            &:focus {
-                color: white;
-            }
-            color: white;
-        }
-    }
-    .toggle-animate{
-        transform: rotate(180deg);
-        transition-duration: 250ms;
-        transition-timing-function:ease-in-out;
-    }
-    .toggle-animate-inactive{
-        transform: rotate(0deg);
-        transition-duration: 250ms;
-        transition-timing-function:ease-in-out;
-    }
-@include media-breakpoint-down(sm){
-    .navbar-nav{
-        .nav-link{
-            &:hover{
                 color:$grey-light;
             }
             &:active {
@@ -68,6 +43,45 @@
     .show-collapse{
         width:100%;
     }
+    .toggle-animate{
+        transform: rotate(180deg);
+        transition-duration: 250ms;
+        transition-timing-function:ease-in-out;
+    }
+    .toggle-animate-inactive{
+        transform: rotate(0deg);
+        transition-duration: 250ms;
+        transition-timing-function:ease-in-out;
+    }
 }
 
+@include media-breakpoint-up(lg){
+    .navbar-section{
+        .navbar-nav{
+            .nav-link{
+                &:hover{
+                    color:white;
+                }
+                &:active {
+                    color : white;
+                }
+                &:focus {
+                    color: white;
+                }
+                color: white;
+            }
+        }
+        .navbar-collapse{
+            padding-top:0;
+            width:auto;
+            position: relative;
+            background-color: transparent;
+            height: auto;
+            transition: 0s;
+        }
+        
+    } 
+   
 }
+
+
