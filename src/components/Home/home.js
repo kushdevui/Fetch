@@ -6,6 +6,7 @@
 // Dependencies
 import React from "react";
 import Header from "../Header/header";
+import SignUp from "../SignUp/signup";
 
 // Styles & Images
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -14,9 +15,10 @@ import "./home.scss";
 
 const Home = () =>{
     return(
-        <Header>
-            
-        </Header>
+        <div>
+            <Header/>
+            <SignUp/>
+        </div>     
     );
 };
 
