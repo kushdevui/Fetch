@@ -4,10 +4,13 @@
 
 // Dependencies
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 import ResponsiveUtils from "../Widgets/ResponsiveUtils/responsiveUtils";
 import ImageOptimize from "../../components/Widgets/ImageOptimize/imageOptimize";
 import NavigationBar from "../Navbar/navbar";
 import { Container, Row, Col } from "reactstrap";
+import { connect } from "react-redux";
+import { onResizeAction } from "../../redux/actions/globalActions";
 
 // Styles & Images
 import "./header.scss";
@@ -16,20 +19,13 @@ import "./header.scss";
 class Header extends Component  {
     constructor(){
         super();
-
-        this.state = {
-            viewport : {}
-        };
-
         this.responsiveUtils = new ResponsiveUtils();
     }
     componentDidMount(){
         // On Resize and On Orientation Change Handler added to ResponsiveUtils Object
         this.responsiveUtils.__proto__.onResize = () => {
             this.responsiveUtils.viewPortSelector();
-            this.setState ({
-                viewport : this.responsiveUtils.getViewPort()
-            });
+            this.props.resize(this.responsiveUtils.getViewPort());
         };
         // Component starts listening to 'resize' and 'onOrientationChange' events
         this.responsiveUtils.init();
@@ -42,7 +38,7 @@ class Header extends Component  {
         this.imageOptimizer = new ImageOptimize({
             mobile_image : "../../assets/images/walking-dog-bg-320.png", 
             large_image : "../../assets/images/walking-dog-bg.png", 
-            viewport : this.state.viewport
+            viewport : this.responsiveUtils.getViewPort()
         });
 
         this.bgImage = {
@@ -69,5 +65,23 @@ class Header extends Component  {
     }
 }
 
+const mapStateToProps = ( state ) => {
+    return {
+        viewport : state.viewport
+    };
+};
+
+const mapDispatchToProps = ( dispatch ) => {
+    return {
+        resize : ( viewport ) => {
+            dispatch(onResizeAction(viewport));  
+        }
+    };
+};
+
+Header.propTypes = {
+    resize : PropTypes.func
+};
+
 // Exporting the Header Component
-export default Header;
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
