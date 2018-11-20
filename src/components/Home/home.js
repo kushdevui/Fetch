@@ -14,9 +14,7 @@ import "./home.scss";
 
 const Home = () =>{
     return(
-        <Header>
-            
-        </Header>
+        <Header/>
     );
 };
 

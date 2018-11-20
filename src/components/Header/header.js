@@ -8,15 +8,16 @@ import ResponsiveUtils from "../Widgets/ResponsiveUtils/responsiveUtils";
 import ImageOptimize from "../../components/Widgets/ImageOptimize/imageOptimize";
 import NavigationBar from "../Navbar/navbar";
 import { Container, Row, Col } from "reactstrap";
+import PropTypes from "prop-types";
 
 // Styles & Images
 import "./header.scss";
 
 
 class Header extends Component  {
-    constructor(){
+    constructor(props){
         super();
-
+        this.props = props;
         this.state = {
             viewport : {}
         };
@@ -52,22 +53,34 @@ class Header extends Component  {
     }
 
     render(){
-        return(
-            <div style={this.bgImage}   className="header">
-                <Container>
-                    <Row>
-                        <Col xs="12" className="pt-3">
-                            <NavigationBar/>
-                        </Col>
-                    </Row>
-                    <h1 xs="12" className="d-sm-none pt-5 text-white">
-                        Love & care, when you’re not there
-                    </h1>
-                </Container>
-            </div>
-        );
+        switch(this.props.headerTemplate){
+            case "static" :
+                return "Single Image" ;
+            default:     
+            return(
+                <div style={this.bgImage} className="header">
+                    <Container fluid>
+                        <Row>
+                            <Col xs="12" className="pt-3">
+                                <NavigationBar/>
+                            </Col>
+                        </Row>
+                        <h1 xs="12" className="d-sm-none pt-5 text-white">
+                            Love & care, when you’re not there
+                        </h1>
+                    </Container>
+                </div>
+            );
+        }
     }
 }
+
+// Define rules for props
+Header.propTypes = {
+    headerTemplate : PropTypes.string
+};
+
+
 
 // Exporting the Header Component
 export default Header;

@@ -2,7 +2,6 @@
 @import '~bootstrap/scss/_variables';
 @import '~bootstrap/scss/mixins/_breakpoints';
 @import '../standard-variables.scss';
-
 .navbar-section{
     .navbar-nav{
         .nav-link{
@@ -57,18 +56,20 @@
 
 @include media-breakpoint-up(lg){
     .navbar-section{
-        .navbar-nav{
-            .nav-link{
-                &:hover{
-                    color:white;
-                }
-                &:active {
-                    color : white;
-                }
-                &:focus {
+        .navbar-light{
+            .navbar-nav{
+                .nav-link{
+                    &:hover{
+                        color:white;
+                    }
+                    &:active {
+                        color : white;
+                    }
+                    &:focus {
+                        color: white;
+                    }
                     color: white;
                 }
-                color: white;
             }
         }
         .navbar-collapse{
@@ -79,9 +80,7 @@
             height: auto;
             transition: 0s;
         }
-        
     } 
-   
 }
 
 
