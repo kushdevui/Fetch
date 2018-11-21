@@ -6,7 +6,7 @@
 // Dependencies
 import React from "react";
 import Header from "../Header/header";
-import SignUp from "../SignUp/signup";
+import SignUpForm from "../SignUpForm/signupform";
 
 // Styles & Images
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,8 +16,8 @@ import "./home.scss";
 const Home = () =>{
     return(
         <div>
-            <Header/>
-            <SignUp/>
+            <Header headerTemplate="landing"/>
+            <SignUpForm/>
         </div>     
     );
 };
