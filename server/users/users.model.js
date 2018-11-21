@@ -9,16 +9,17 @@
 
 // Dependencies
 import mongoose from 'mongoose';
-const email_regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-const phone_regex = /^[1-9]{1}[0-9]{9}$/;
+import userConfig from './user.config';
+import uniqueValidator from 'mongoose-unique-validator';
 
 
 
 const users_schema = mongoose.Schema({
-    _id : mongoose.Schema.Types.ObjectId,
     user_id : {
         type : String,
-        required : true
+        required : [true , "Cannot Be Blank"],
+        unique : true,
+        index : true
     },
     user_name : {
         user_first_name : {
@@ -36,43 +37,61 @@ const users_schema = mongoose.Schema({
     },
     user_email : {
         type : String, 
-        required : true,
-        validate : {
-            validator : (email) => {
-                return email_regex.test(email);
-            },
-            message : `Please enter a valid Email Address`
-        }
+        required : [true , "Cannot Be Blank"],
+        unique : true,
+        index : true
     },
-    user_phone : [{
-        phone : {
-            type : Number,
+    user_phone_numbers : [
+         {
+            type : [Number],
             required : true,
             validate : {
                 validator : (phone) => {
-                    return phone_regex.test(phone);
-                },
-                message : `Phone number must contain 10 digits`
-            }
+                    return userConfig.phone_regex.test(phone)
+                }
+            },
+            index : true
         }
-    }],
+    ],
     user_password : {
         type : String, 
         required : true
     },
     user_type : {
         type : String,
-        required : true
+        required : true,
+        default : "USER",
+        match : [userConfig.user_type , "Invalid Type"]
     },
-    user_status : String,
-    user_city : String,
-    user_state : String,
-    user_pincode : Number,
+    user_status : {
+        isActive : Boolean
+    },
+    user_addresses : [
+        {
+        address_line_one : String,
+        address_line_two : String,
+        user_city : String,
+        user_state : String,
+        user_pincode : Number,
+        lat : Number,
+        long : Number
+    }
+],
     user_gender : String,
     user_dob : {
         type : Date,
         required : false
-    }
+    },
+    optedForNewsletter : Boolean
 });
 
+users_schema.path("user_email").validate( (email) => {
+    return userConfig.email_regex.test(email);
+} , "Invalid Email");
+
+
+// Validating Unique User
+users_schema.plugin(uniqueValidator , { message : "User Already Exists"} );
+
+// Exporting the Users Model
 export default mongoose.model('users' , users_schema);
