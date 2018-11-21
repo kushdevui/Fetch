@@ -71,7 +71,7 @@ class  NavigationBar extends Component {
                                     <NavLink href="#">Help</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="#">SignUp</NavLink>
+                                    <NavLink href="/signup">SignUp</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink href="#">login</NavLink>

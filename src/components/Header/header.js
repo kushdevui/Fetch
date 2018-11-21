@@ -4,46 +4,28 @@
 
 // Dependencies
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 import ResponsiveUtils from "../Widgets/ResponsiveUtils/responsiveUtils";
 import ImageOptimize from "../../components/Widgets/ImageOptimize/imageOptimize";
 import NavigationBar from "../Navbar/navbar";
 import { Container, Row, Col } from "reactstrap";
-import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 // Styles & Images
 import "./header.scss";
 
-
 class Header extends Component  {
-    constructor(props){
+    constructor(){
         super();
-        this.props = props;
-        this.state = {
-            viewport : {}
-        };
-
         this.responsiveUtils = new ResponsiveUtils();
     }
     componentDidMount(){
-        // On Resize and On Orientation Change Handler added to ResponsiveUtils Object
-        this.responsiveUtils.__proto__.onResize = () => {
-            this.responsiveUtils.viewPortSelector();
-            this.setState ({
-                viewport : this.responsiveUtils.getViewPort()
-            });
-        };
-        // Component starts listening to 'resize' and 'onOrientationChange' events
-        this.responsiveUtils.init();
 
-        // Set the value of viewport on component mount
-        this.responsiveUtils.onResize();
-        
         //Optimizing Image as per the viewPort.
-
         this.imageOptimizer = new ImageOptimize({
             mobile_image : "../../assets/images/walking-dog-bg-320.png", 
             large_image : "../../assets/images/walking-dog-bg.png", 
-            viewport : this.state.viewport
+            viewport : this.props.viewport
         });
 
         this.bgImage = {
@@ -54,10 +36,10 @@ class Header extends Component  {
 
     render(){
         switch(this.props.headerTemplate){
-            case "static" :
+            case "static"  :
                 return "Single Image" ;
-            default:     
-            return(
+            case "landing" :   
+                return(
                 <div style={this.bgImage} className="header">
                     <Container fluid>
                         <Row>
@@ -70,17 +52,23 @@ class Header extends Component  {
                         </h1>
                     </Container>
                 </div>
-            );
+                );
+            default:
         }
     }
 }
 
-// Define rules for props
 Header.propTypes = {
-    headerTemplate : PropTypes.string
+    viewport:PropTypes.object,
+    headerTemplate:PropTypes.string.isRequired
+};
+
+const mapStateToProps = ( state ) => {
+    return {
+        viewport : state.resizeReducer.viewport
+    };
 };
 
 
-
 // Exporting the Header Component
-export default Header;
+export default connect(mapStateToProps)(Header);

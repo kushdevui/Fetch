@@ -10,9 +10,9 @@ import React , { Component } from "react";
 import { Container , Row , Col , Form , FormGroup , Input , Label , FormFeedback , FormText} from "reactstrap";
 
 // Styles & Images
-import "./signup.scss";
+import "./signupform.scss";
 
-class SignUp extends Component {
+class SignUpForm extends Component {
      constructor() {
         super();
         this.state = {
@@ -90,4 +90,4 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp;
+export default SignUpForm;

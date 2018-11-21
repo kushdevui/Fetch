@@ -83,6 +83,14 @@ var _plugins = [
     )
 ];  
 
+var _devServer = {
+    contentBase : path.join(__dirname , '/dist'),
+    compress : true,
+    port : 9000,
+    hot : true,
+    open : true
+}
+
 var _optimization = {
     splitChunks: {
         cacheGroups: {
@@ -108,6 +116,8 @@ var config = {
     entry : _entry,
 
     output : _output,
+
+    devServer : _devServer,
 
     module : _module,
 
