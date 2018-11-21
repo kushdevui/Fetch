@@ -48,6 +48,7 @@ class Header extends Component  {
     }
 
     render(){
+        console.log(this.props.viewport);
         return(
             <div style={this.bgImage}   className="header">
                 <Container>
@@ -67,7 +68,7 @@ class Header extends Component  {
 
 const mapStateToProps = ( state ) => {
     return {
-        viewport : state.viewport
+        viewport : state.resizeReducer.viewport
     };
 };
 
@@ -80,7 +81,8 @@ const mapDispatchToProps = ( dispatch ) => {
 };
 
 Header.propTypes = {
-    resize : PropTypes.func
+    resize : PropTypes.func,
+    viewport : PropTypes.object
 };
 
 // Exporting the Header Component
