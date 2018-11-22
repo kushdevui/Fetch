@@ -2,11 +2,13 @@
 @import '~bootstrap/scss/_variables';
 @import '~bootstrap/scss/mixins/_breakpoints';
 @import '../standard-variables.scss';
-.header-static{
-    min-height: 5rem;
-    height:5rem;
+
+.header-static {
+    padding:1rem;
+    border-bottom: 1px solid rgb(228, 228, 228);
 }
 .header{
+    padding:0.5rem;
     min-height: 15rem;
     height:15rem;
     background-position: center;
@@ -19,7 +21,7 @@
     }
 }
 
-@include media-breakpoint-up(md) { 
+@include media-breakpoint-up(lg) { 
     .header{
         background-position: center;
         background-repeat: no-repeat;

@@ -7,17 +7,16 @@
  import React from "React";
  import Header from "../Header/header";
  import SignupForm from "../SignUpForm/signupform";
- import {Container} from "reactstrap";
+ import {Container,Row} from "reactstrap";
 
  const Signup = () =>{
      return(
-         <div>
-            <Header headerTemplate="static"/>
+         <Row>
+            <Header headerTemplate="landing"/>
             <Container>
                 <SignupForm/>
             </Container>
-           
-         </div>
+         </Row>
      );
  };
 
