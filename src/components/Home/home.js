@@ -7,6 +7,7 @@
 import React from "react";
 import Header from "../Header/header";
 import SignUpForm from "../SignUpForm/signupform";
+import {Row} from "reactstrap";
 
 // Styles & Images
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,10 +16,10 @@ import "./home.scss";
 
 const Home = () =>{
     return(
-        <div>
+        <Row>
             <Header headerTemplate="landing"/>
             <SignUpForm/>
-        </div>     
+        </Row>     
     );
 };
 
