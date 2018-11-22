@@ -5,7 +5,7 @@
  */
 
  import React from "react";
- import {ButtonGroup,Button,Row,Col} from "reactstrap";
+ import { ButtonGroup , Button , Row , Col } from "reactstrap";
 
  import "./signup.scss";
 

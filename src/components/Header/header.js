@@ -20,7 +20,6 @@ class Header extends Component  {
         this.responsiveUtils = new ResponsiveUtils();
     }
     componentDidMount(){
-
         //Optimizing Image as per the viewPort.
         this.imageOptimizer = new ImageOptimize({
             mobile_image : "../../assets/images/walking-dog-bg-320.png", 
@@ -38,7 +37,7 @@ class Header extends Component  {
         switch(this.props.headerTemplate){
             case "static"  :
                 return(
-                    <div className="header-static col-12">
+                    <div className="static-header col-12">
                         <NavigationBar navbarTemplate="black"/>
                     </div>
                 );
