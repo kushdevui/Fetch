@@ -3,18 +3,17 @@
  * 
  * 
  */
-
  import React from "React";
  import Header from "../Header/header";
- import SignupForm from "../SignUpForm/signupform";
+ import SignupLanding from "./signuplanding";
  import {Container,Row} from "reactstrap";
 
  const Signup = () =>{
      return(
          <Row>
-            <Header headerTemplate="landing"/>
+            <Header headerTemplate="static"/>
             <Container>
-                <SignupForm/>
+                <SignupLanding/>
             </Container>
          </Row>
      );

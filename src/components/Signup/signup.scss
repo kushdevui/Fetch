@@ -1,0 +1,38 @@
+@import '~bootstrap/scss/_functions';
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+@import '../standard-variables.scss';
+
+.signup-landing-section{
+    padding-top:1rem;
+    justify-content: center;
+    p{
+        font-size:0.75rem;
+        font-style: italic;
+    }
+    h3{
+        font-size: 1rem;
+    }
+    .facbook-login-btn{
+        background:$facebook !important;
+        color:white !important;
+    }
+    .email-login{
+        background-color: $yellow;
+        color:white;
+    }
+    .btn-group, .btn-group-vertical{
+        margin:0.5rem 0;
+        display: block !important;
+    }
+ @include media-breakpoint-up(lg){
+    .d-signup-inner{
+        border-radius: .25rem;
+        border:1px solid $grey-light;
+        padding:0.75rem 1rem;
+        p{
+            font-size:0.75rem;
+        }
+    }
+ }   
+}
