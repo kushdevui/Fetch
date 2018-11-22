@@ -48,39 +48,61 @@ class  NavigationBar extends Component {
     }
 
     render(){
-        switch(this.props.template){
-            case "landing":
-                return <div>Its landing page</div>;
-            case "Inner":
-                return <div>Its Inner Page</div>;
+        switch(this.props.navbarTemplate){
+            case "black":
+                return ( 
+                    <div className="navbar-section">
+                        <Navbar className="p-0" color="transparent" dark expand="md">
+                            <NavbarBrand href="/">
+                                <Logo logoTemplate="black"/>
+                            </NavbarBrand>
+                            <Collapse className={this.state.isOpen ? "show-collapse" : ""} navbar>
+                                <Nav className="ml-auto" navbar>
+                                    <NavItem>
+                                        <NavLink href="#">Become a Sitter</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink href="#">Help</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink href="/signup">SignUp</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink href="#">login</NavLink>
+                                    </NavItem>
+                                </Nav>
+                            </Collapse>
+                        </Navbar>
+                    </div>);
+            case "white":
+                return(
+                    <div className="navbar-section">
+                        <Navbar className="p-0" color="transparent" light expand="md">
+                            <NavbarBrand href="/">
+                                <Logo logoTemplate="basic"/>
+                            </NavbarBrand>
+                            <FontAwesomeIcon className={"d-sm-none " + (this.state.isActive ? "toggle-animate": "toggle-animate-inactive")} onClick={this.toggle} icon={faAngleDown} color="white" size="2x"/>
+                            <Collapse className={this.state.isOpen ? "show-collapse" : ""} navbar>
+                            <FontAwesomeIcon  onClick={this.toggle}  className="close d-sm-none" icon={faTimes} color="black" size="1x"/>
+                                <Nav className="ml-auto" navbar>
+                                    <NavItem>
+                                        <NavLink href="#">Become a Sitter</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink href="#">Help</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink href="/signup">SignUp</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink href="#">login</NavLink>
+                                    </NavItem>
+                                </Nav>
+                            </Collapse>
+                        </Navbar>
+                    </div>
+                );
             default:
-            return(
-                <div className="navbar-section">
-                    <Navbar className="p-0" color="transparent" light expand="md">
-                        <NavbarBrand href="/">
-                            <Logo/>
-                        </NavbarBrand>
-                        <FontAwesomeIcon className={"d-sm-none " + (this.state.isActive ? "toggle-animate": "toggle-animate-inactive")} onClick={this.toggle} icon={faAngleDown} color="white" size="2x"/>
-                        <Collapse className={this.state.isOpen ? "show-collapse" : ""} navbar>
-                        <FontAwesomeIcon  onClick={this.toggle}  className="close d-sm-none" icon={faTimes} color="black" size="1x"/>
-                            <Nav className="ml-auto" navbar>
-                                <NavItem>
-                                    <NavLink href="#">Become a Sitter</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink href="#">Help</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink href="/signup">SignUp</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink href="#">login</NavLink>
-                                </NavItem>
-                            </Nav>
-                        </Collapse>
-                    </Navbar>
-                </div>
-            );
         }
 
        
@@ -89,7 +111,8 @@ class  NavigationBar extends Component {
 
 // React prototype rules
 NavigationBar.propTypes = {
-    template:PropTypes.string
+    template:PropTypes.string,
+    navbarTemplate:PropTypes.string
 };
 
 //exporting the module

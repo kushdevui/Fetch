@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import ResponsiveUtils from "../Widgets/ResponsiveUtils/responsiveUtils";
 import ImageOptimize from "../../components/Widgets/ImageOptimize/imageOptimize";
 import NavigationBar from "../Navbar/navbar";
-import { Container, Row, Col } from "reactstrap";
+import {Row, Col } from "reactstrap";
 import { connect } from "react-redux";
 
 // Styles & Images
@@ -37,20 +37,29 @@ class Header extends Component  {
     render(){
         switch(this.props.headerTemplate){
             case "static"  :
-                return "Single Image" ;
+                return(
+                    <div className="header-static">
+                            <Row>
+                                <Col xs="12">
+                                    <NavigationBar navbarTemplate="black"/>
+                                </Col>
+                            </Row>
+                            <h1 xs="12" className="d-sm-none pt-5 text-white">
+                                Love & care, when you’re not there
+                            </h1>
+                    </div>
+                );
             case "landing" :   
                 return(
                 <div style={this.bgImage} className="header">
-                    <Container fluid>
                         <Row>
-                            <Col xs="12" className="pt-3">
-                                <NavigationBar/>
+                            <Col xs="12">
+                                <NavigationBar navbarTemplate="white"/>
                             </Col>
                         </Row>
                         <h1 xs="12" className="d-sm-none pt-5 text-white">
                             Love & care, when you’re not there
                         </h1>
-                    </Container>
                 </div>
                 );
             default:
