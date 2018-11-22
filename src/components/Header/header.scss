@@ -2,6 +2,10 @@
 @import '~bootstrap/scss/_variables';
 @import '~bootstrap/scss/mixins/_breakpoints';
 @import '../standard-variables.scss';
+.header-static{
+    min-height: 5rem;
+    height:5rem;
+}
 .header{
     min-height: 15rem;
     height:15rem;

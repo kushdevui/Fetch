@@ -44,6 +44,7 @@
     "react": "^16.5.2",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.5.2",
+    "react-form": "^3.5.6",
     "react-redux": "^5.1.1",
     "react-responsive-picture": "^3.0.0",
     "react-router": "^4.3.1",
@@ -51,6 +52,7 @@
     "react-slick": "^0.23.1",
     "reactstrap": "^6.5.0",
     "redux": "^4.0.1",
+    "redux-form": "^7.4.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "scrollmagic": "^2.0.6"
