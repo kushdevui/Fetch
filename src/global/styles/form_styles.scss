@@ -1,20 +1,5 @@
-@import "./base_colors.scss";
-@import "./base_variables.scss";
-@import "./_fonts.scss";
 
 
-.input-fields-container {
-    align-items : center;
-    .form-icons {
-        position: absolute;
-        right: 0.5rem;
-        font-size : 1.2rem;
-        color : $icon-grey;
-    }
-}
 
-.input-field-error-msg {
-    color : $error-red;
-    font-size : 0.8rem;
-}
+
 

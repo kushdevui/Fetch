@@ -1,0 +1,33 @@
+@import "../../global/styles/base_colors.scss";
+@import "../../global/styles/base_variables.scss";
+@import "../../global/styles/_fonts.scss";
+
+.sign-up-form {
+    .form-group {
+        .input-fields-container {
+            align-items : center;
+            .form-icons {
+                position: absolute;
+                right: 0.5rem;
+                font-size : 1.2rem;
+                color : $icon-grey;
+            }
+        }
+        .input-field-error-msg {
+            color : $error-red;
+            font-size : 0.8rem;
+        }
+        .errors-warnings-section {
+            font-size : 0.8rem;
+            .weak-password {
+                color : $warn-weak-color;
+            }
+            .fair-password {
+                color : $warn-fair-color;
+            }
+            .strong-password {
+                color : $strong-password-color;
+            }
+        }
+    }
+}

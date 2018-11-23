@@ -15,7 +15,7 @@ import { faUser, faEnvelope, faMobile, faKey } from "@fortawesome/free-solid-svg
 import { validate , warn } from "../../global/libs/signUpFormValidations";
 
 // Styles & Images
-import "./signupform.scss";
+import "./sign_up_form.scss";
 
 /**
  * Render Input Fields here
@@ -72,7 +72,7 @@ const RenderField = ({
 const SignUpForm = (props) => {
     const { handleSubmit } = props; 
     return (
-    <Form onSubmit = {handleSubmit} className = "mt-5">
+    <Form onSubmit = {handleSubmit} className = "mt-5 sign-up-form">
         <Field 
             name = "signup_first_name"
             type = "text"
