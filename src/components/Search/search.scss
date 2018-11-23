@@ -1,0 +1,11 @@
+.search-component{
+    
+    
+    
+    
+    @include media-breakpoint-up(lg){
+        h1{
+            font-weight: 600;
+        }
+    }
+}

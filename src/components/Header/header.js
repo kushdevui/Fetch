@@ -10,6 +10,7 @@ import ImageOptimize from "../../components/Widgets/ImageOptimize/imageOptimize"
 import NavigationBar from "../Navbar/navbar";
 import {Col} from "reactstrap";
 import { connect } from "react-redux";
+import Search from "../Search/search";
 
 // Styles & Images
 import "./header.scss";
@@ -47,9 +48,7 @@ class Header extends Component  {
                         <Col xs="12" className="p-0">
                             <NavigationBar navbarTemplate="white"/>
                         </Col>
-                        <h1 xs="12" className="d-sm-none pt-5 text-white">
-                            Love & care, when you’re not there
-                        </h1>
+                        <Search/>
                     </div>
                 );
             default:
