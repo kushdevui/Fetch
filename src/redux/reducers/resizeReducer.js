@@ -11,7 +11,7 @@ const initialState = {
     viewport : {}
 };
 
- const resizeReducer = ( state = initialState , action) => {
+const resizeReducer = ( state = initialState , action) => {
     switch (action.type) {
         case RESIZE_VIEWPORT:
             return {
@@ -22,6 +22,6 @@ const initialState = {
         default : 
             return state;
     }
- };
+};
 
  export default resizeReducer;

@@ -7,7 +7,7 @@ import { onResizeAction } from "../../redux/actions/globalActions";
 
 //importing Components 
 import Home from "../../components/Home/home";
-import SignUp from "../../components/Signup/signup";
+import SignUp from "../SignUp/signUp";
 
 class Layout extends Component {
     constructor(){

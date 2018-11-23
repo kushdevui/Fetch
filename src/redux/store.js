@@ -12,6 +12,7 @@ import { createLogger } from "redux-logger";
 import thunk from "redux-thunk";
 import resizeReducer from "./reducers/resizeReducer";
 import { reducer as formReducer } from "redux-form";
+import signUpRenderReducer from "./reducers/signUpRenderReducer";
 
 // Initial State of Store
 const initialStoreState = () => {
@@ -30,7 +31,8 @@ const initialStoreState = () => {
 export default createStore(
     combineReducers({
         resizeReducer  : resizeReducer,
-        form : formReducer
+        form : formReducer,
+        signUpTemplate : signUpRenderReducer
     }),
     initialStoreState(),
     applyMiddleware(createLogger() , thunk)

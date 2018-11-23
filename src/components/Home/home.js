@@ -6,7 +6,6 @@
 // Dependencies
 import React from "react";
 import Header from "../Header/header";
-import SignUpForm from "../SignUpForm/signupform";
 import {Row} from "reactstrap";
 
 // Styles & Images
@@ -18,7 +17,6 @@ const Home = () =>{
     return(
         <Row>
             <Header headerTemplate="landing"/>
-            <SignUpForm/>
         </Row>     
     );
 };

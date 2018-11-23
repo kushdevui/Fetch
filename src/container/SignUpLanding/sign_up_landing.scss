@@ -5,36 +5,43 @@
 @import "../../global/styles/base_colors.scss";
 @import "../../global/styles/base_variables.scss";
 
-.signup-landing-section{
+.signup-landing-section {
     padding-top:1rem;
     justify-content: center;
-    p{
+
+    p {
         font-size:0.75rem;
         font-style: italic;
     }
-    h3{
+
+    h3 {
         font-size: 1rem;
     }
-    .facbook-login-btn{
+
+    .facbook-login-btn {
         background:$facebook !important;
         color:$white !important;
     }
-    .email-login{
+
+    .email-login {
         background-color: $yellow;
         color:$white;
     }
-    .btn-group, .btn-group-vertical{
+
+    .btn-group, .btn-group-vertical {
         margin:0.5rem 0;
         display: block !important;
     }
- @include media-breakpoint-up(lg){
-    .d-signup-inner{
-        border-radius: .25rem;
-        border:1px solid $grey-light;
-        padding:0.75rem 1rem;
-        p{
-            font-size:0.75rem;
+    @include media-breakpoint-up(lg) {
+
+        .d-signup-inner {
+            border-radius: .25rem;
+            border:1px solid $grey-light;
+            padding:0.75rem 1rem;
+
+            p {
+                font-size:0.75rem;
+            }
         }
-    }
- }   
+    }   
 }

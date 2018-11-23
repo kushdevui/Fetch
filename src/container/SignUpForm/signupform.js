@@ -28,7 +28,8 @@ const RenderField = ({
     id,
     label,
     meta: { touched, error, warning},
-    icon
+    icon,
+    value
 }) => {
     switch(type) {
         case "password" : return (
@@ -46,6 +47,15 @@ const RenderField = ({
                     {error.isSmall &&<div className = "input-field-error-msg">{error.isSmall}</div>}
                     {error.isInvalid && <div className = "input-field-error-msg">{error.isInvalid}</div>}
                 </div>}
+            </FormGroup>
+        );
+
+        case "checkbox": return (
+            <FormGroup check>
+                <Label check for={id}>
+                <Input {...input} value = {value} id = {id} type = {type}/>
+                    {label}
+                </Label>
             </FormGroup>
         );
 
@@ -116,6 +126,14 @@ const SignUpForm = (props) => {
             label = "Create a Password"
             component = { RenderField }
             icon = {faKey}
+        />
+
+        <Field
+            type = "checkbox"
+            id = "signup_promotion_checkbox"
+            label = "loren epsum loren epsum loren epsum loren epsum loren epsum loren epsum loren epsum loren epsum "
+            component = { RenderField }
+            value = "abc"
         />
     </Form>
     );

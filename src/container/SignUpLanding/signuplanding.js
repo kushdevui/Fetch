@@ -5,11 +5,12 @@
  */
 
  import React from "react";
+ import PropTypes from "prop-types";
  import { ButtonGroup , Button , Row , Col } from "reactstrap";
 
- import "./signup.scss";
+ import "./sign_up_landing.scss";
 
- const SignupLanding = () =>{
+ const SignupLanding = (props) =>{
     return(<Row className="signup-landing-section">
         <Col className="d-signup-inner" lg={5} xs={12}>
             <ButtonGroup>
@@ -26,7 +27,7 @@
                 <hr/>
             </ButtonGroup>
             <ButtonGroup>
-                <Button color="btn email-login button-full">
+                <Button color="btn email-login button-full" onClick = {() => props.renderForm("form")}>
                     Sign up in with Email
                 </Button>
             </ButtonGroup>
@@ -42,6 +43,10 @@
             </ButtonGroup>
         </Col>
     </Row>);
+ };
+
+ SignupLanding.propTypes = {
+    renderForm : PropTypes.func
  };
 
  export default SignupLanding;
