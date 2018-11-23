@@ -1,7 +1,9 @@
 @import '~bootstrap/scss/_functions';
 @import '~bootstrap/scss/_variables';
 @import '~bootstrap/scss/mixins/_breakpoints';
-@import '../standard-variables.scss';
+@import "../../global/styles/_fonts.scss";
+@import "../../global/styles/base_colors.scss";
+@import "../../global/styles/base_variables.scss";
 
 .static-header {
     padding:1rem;

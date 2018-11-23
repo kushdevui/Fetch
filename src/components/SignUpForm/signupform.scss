@@ -1,36 +1,14 @@
+@import "../../global/styles/form_styles.scss";
 
-
-.sign-up-heading {
-    text-align: center;
-}
-
-.form-icons {
-    position: absolute;
-    right: 0.5rem;
-    font-size : 1.2rem;
-    color : rgb(107, 105, 105);
-}
-
-
-
-.input-fields-container {
-    align-items : center;
-}
-
-.input-field-error-msg {
-    color : #dc3545;
+.errors-warnings-section {
     font-size : 0.8rem;
-}
-
-.weak-password, .strong-password, .fair-password {
-    font-size : 0.8rem;
-    &.weak-password {
-        color : rgb(224, 102, 20);
+    .weak-password {
+        color : $warn-weak-color;
     }
-    &.fair-password {
-        color : rgb(238, 188, 26);
+    .fair-password {
+        color : $warn-fair-color;
     }
-    &.strong-password {
-        color : rgb(100, 192, 13);
+    .strong-password {
+        color : $strong-password-color;
     }
 }
