@@ -8,122 +8,137 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Row , Col , Form , FormGroup , Input , Label , FormFeedback} from "reactstrap";
+import { Form , FormGroup , Input , Label } from "reactstrap";
 import { Field, reduxForm } from "redux-form";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faEnvelope, faMobile, faKey } from "@fortawesome/free-solid-svg-icons";
+import { validate , warn } from "../../global/libs/signUpFormValidations";
 
 // Styles & Images
-import "./signupform.scss";
+import "./sign_up_form.scss";
 
-const validate = values => {
-    console.log(values);
-    const errors = {};
-
-    if(!values.signup_first_name) {
-        errors.signup_first_name = "First Name is Required";
-    } else if(!/[A-Za-z]/.test(values.signup_first_name)) {
-        errors.signup_first_name = "Please enter only alphabets";
-    }
-
-    if(!values.signup_last_name) {
-        errors.signup_last_name = "Last Name is Required";
-    } else if(!/[A-Za-z]/.test(values.signup_last_name)) {
-        errors.signup_last_name = "Please enter only alphabets";
-    }
-
-    if (!values.signup_email) {
-        errors.signup_email = "Email Address is Required";
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.signup_email)) {
-        errors.signup_email = "Invalid email address";
-    }
-
-    if(!values.signup_phone) {
-        errors.signup_phone = "Phone number is required";
-    } else if(values.signup_phone.length != 10) {
-        errors.signup_phone = "Invalid Phone Number";
-    }
-
-    return errors;
-};
-
+/**
+ * Render Input Fields here
+ * 
+ * @param {*} param0 
+ */
 const RenderField = ({
     input,
     type,
     id,
     label,
-    meta: { touched, error }
-}) => (
-    <FormGroup>
-        <Label for = {id}>{label}</Label>
-        <Input {...input} invalid = {touched && error} valid = {!error} type = {type} id = {id} name = {name}></Input>
-        <FormFeedback invalid>{error}</FormFeedback>
-    </FormGroup>
-);
+    meta: { touched, error, warning},
+    icon
+}) => {
+    switch(type) {
+        case "password" : return (
+            <FormGroup>
+                <div className = "d-flex input-fields-container">
+                    <Input className = "rounded-0" {...input} invalid = {touched && Object.keys(error).length} valid = {!Object.keys(error).length} bsSize = "lg" type = {type} id = {id} name = {name} placeholder = {label}></Input>
+                    <Label for = {id} className = "form-icons">
+                        <FontAwesomeIcon icon = {icon}/>
+                    </Label>
+                </div>
+                
+                {<div className = "errors-warnings-section">
+                    {touched && error.isEmpty && <div className = "input-field-error-msg">{error.isEmpty}</div>}
+                    {warning && <div className = { ((warning.isWeak && "weak-password") || (warning.isFair && "fair-password") || (warning.isStrong && "strong-password")) }>{warning.isWeak || warning.isFair || warning.isStrong}</div>}
+                    {error.isSmall &&<div className = "input-field-error-msg">{error.isSmall}</div>}
+                    {error.isInvalid && <div className = "input-field-error-msg">{error.isInvalid}</div>}
+                </div>}
+            </FormGroup>
+        );
+
+        default: return (
+            <FormGroup>
+                <div className = "d-flex input-fields-container">
+                    <Input className = "rounded-0" {...input} invalid = {touched && error} valid = {!error} bsSize = "lg" type = {type} id = {id} name = {name} placeholder = {label}></Input>
+                    <Label for = {id} className = "form-icons">
+                        <FontAwesomeIcon icon = {icon} />
+                    </Label>
+                </div>
+                { touched && error && <div className = "input-field-error-msg">{error}</div>}
+                
+            </FormGroup>
+        );
+    }
+};
 
 
+/**
+ * 
+ * @param {Store variables} props 
+ */
 const SignUpForm = (props) => {
     const { handleSubmit } = props; 
     return (
-    <Form onSubmit = {handleSubmit} className = "mt-5">
-        <Row>
-            <Col md = {6} sm = {12}>
-                <Field 
-                    name = "signup_first_name"
-                    type = "text"
-                    id = "signup_first_name"
-                    label = "First Name"
-                    component = { RenderField }
-                />
-            </Col>
-            <Col md = {6} sm = {12}>
-                <Field 
-                    name = "signup_last_name"
-                    type = "text"
-                    id = "signup_last_name"
-                    label = "Last Name"
-                    component = { RenderField }
-                />
-            </Col>
-        </Row>
-        <Row>
-            <Col>
-                <Field 
-                    name = "signup_email"
-                    type = "email"
-                    id = "signup_email"
-                    label = "Email Address"
-                    component = { RenderField }
-                />
-            </Col>
-            <Col>
-                <Field 
-                    name = "signup_phone"
-                    type = "text"
-                    id = "signup_phone"
-                    label = "Phone Number"
-                    component = { RenderField }
-                />
-            </Col>
-        </Row>
+    <Form onSubmit = {handleSubmit} className = "mt-5 sign-up-form">
+        <Field 
+            name = "signup_first_name"
+            type = "text"
+            id = "signup_first_name"
+            label = "First Name"
+            component = { RenderField }
+            icon = {faUser}
+        />
+    
+        <Field 
+            name = "signup_last_name"
+            type = "text"
+            id = "signup_last_name"
+            label = "Last Name"
+            component = { RenderField }
+            icon = {faUser}
+        />
+    
+        <Field 
+            name = "signup_email"
+            type = "email"
+            id = "signup_email"
+            label = "Email Address"
+            component = { RenderField }
+            icon = {faEnvelope}
+        />
+    
+        <Field 
+            name = "signup_phone"
+            type = "text"
+            id = "signup_phone"
+            label = "Phone Number"
+            component = { RenderField }
+            icon = {faMobile}
+        />
+
+        <Field
+            name = "signup_password"
+            type = "password"
+            id = "signup_password"
+            label = "Create a Password"
+            component = { RenderField }
+            icon = {faKey}
+        />
     </Form>
     );
 };
 
+// Prop validations for fields
 RenderField.propTypes = {
-    input: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number
-    ]),
+    input: PropTypes.object,
     type : PropTypes.string,
     id : PropTypes.string,
     label : PropTypes.string,
-    meta : PropTypes.object
+    meta : PropTypes.object,
+    icon : PropTypes.object
 };
 
+// Prop validations for Sign Up form
 SignUpForm.propTypes = {
     handleSubmit : PropTypes.func
 };
 
+// Making the Sign up form as Redux Form
 export default reduxForm({
     form : "signUpForm",
-    validate
+    validate,
+    warn
 })(SignUpForm);

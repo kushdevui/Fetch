@@ -1,7 +1,9 @@
 @import '~bootstrap/scss/_functions';
 @import '~bootstrap/scss/_variables';
 @import '~bootstrap/scss/mixins/_breakpoints';
-@import '../standard-variables.scss';
+@import "../../global/styles/_fonts.scss";
+@import "../../global/styles/base_colors.scss";
+@import "../../global/styles/base_variables.scss";
 
 .signup-landing-section{
     padding-top:1rem;
@@ -15,11 +17,11 @@
     }
     .facbook-login-btn{
         background:$facebook !important;
-        color:white !important;
+        color:$white !important;
     }
     .email-login{
         background-color: $yellow;
-        color:white;
+        color:$white;
     }
     .btn-group, .btn-group-vertical{
         margin:0.5rem 0;
