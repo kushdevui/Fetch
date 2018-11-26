@@ -8,7 +8,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Form , FormGroup , Input , Label } from "reactstrap";
+import { Form , FormGroup , Input , Label, Button } from "reactstrap";
 import { Field, reduxForm } from "redux-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faEnvelope, faMobile, faKey } from "@fortawesome/free-solid-svg-icons";
@@ -51,10 +51,10 @@ const RenderField = ({
         );
 
         case "checkbox": return (
-            <FormGroup check>
+            <FormGroup check className = "p-0">
                 <Label check for={id}>
-                <Input {...input} value = {value} id = {id} type = {type}/>
-                    {label}
+                    <Input {...input} value = {value} id = {id} type = {type}/>
+                    <div className="checkbox-label-text">{label}</div>
                 </Label>
             </FormGroup>
         );
@@ -129,12 +129,17 @@ const SignUpForm = (props) => {
         />
 
         <Field
+            name = "signup_promotion_checkbox"
             type = "checkbox"
             id = "signup_promotion_checkbox"
-            label = "loren epsum loren epsum loren epsum loren epsum loren epsum loren epsum loren epsum loren epsum "
+            label = "I don’t want to receive marketing messages from Fetch. I can also opt out of receiving these at any time in my account settings."
             component = { RenderField }
-            value = "abc"
+            value = "promotional messages"
         />
+
+        <div className = "d-flex">
+            <Button className = "signup-form-submit-btn mt-3 py-3 font-weight-bold" type = "submit" value="Sign Up">Sign Up</Button>
+        </div>
     </Form>
     );
 };

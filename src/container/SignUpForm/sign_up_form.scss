@@ -1,3 +1,4 @@
+@import "~font-awesome/css/font-awesome.min.css";
 @import "../../global/styles/base_colors.scss";
 @import "../../global/styles/base_variables.scss";
 @import "../../global/styles/_fonts.scss";
@@ -12,11 +13,6 @@
                 font-size : 1.2rem;
                 color : $icon-grey;
             }
-        }
-
-        input[type=checkbox] {
-            position: absolute;
-            opacity: 0;
         }
 
         .input-field-error-msg {
@@ -34,6 +30,74 @@
             .strong-password {
                 color : $strong-password-color;
             }
+        }
+    }
+
+    .form-check {
+        label {
+            cursor: pointer;
+
+            input[type=checkbox] {
+                opacity: 0;
+                & + .checkbox-label-text:before {
+                    font-family: "FontAwesome";
+                    content: "\f096";
+                    margin-right : 0.25rem;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 1.2rem;
+                    display: inline-block;
+                    width: 1rem;
+                }
+                &:checked + .checkbox-label-text:before {
+                    content: "\f046";
+                    
+                }
+                &:focus + .checkbox-label-text:before {
+                    color : rgb(13, 102, 219);
+                }
+                &:disabled + .checkbox-label-text:before {
+                    content : "\f0c8";
+                    color : $grey-light;
+                }
+            }
+        }
+    }
+
+    .signup-form-submit-btn {
+        flex : 1;
+        background: linear-gradient(#45b367, #64b67d, #6ea780);
+        
+        &:hover {
+            animation-name: submit-btn-animation;
+            animation-duration: 0.3s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+        &:focus {
+            outline : none;
+        }
+
+    }
+
+    @keyframes submit-btn-animation {
+        0% {
+            background: linear-gradient(90deg , #8ead98 ,#319b52 , #319b52 ,  #319b52, #319b52);
+        }
+        20% {
+            background: linear-gradient(90deg , #319b52 ,#8ead98 , #319b52 ,  #319b52, #319b52);
+        }
+        40% {
+            background: linear-gradient(90deg , #319b52 ,#319b52 , #8ead98 ,  #319b52, #319b52);
+        }
+        60% {
+            background: linear-gradient(90deg , #319b52 ,#319b52 ,  #319b52,#8ead98 , #319b52);
+        }
+        80% {
+            background: linear-gradient(90deg , #319b52 ,#319b52 ,  #319b52,#319b52 , #8ead98);
+        }
+        100%{
+            background: linear-gradient(90deg , #319b52 ,#319b52 ,  #319b52,#319b52 , #319b52);
         }
     }
 }
