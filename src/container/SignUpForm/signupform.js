@@ -68,7 +68,6 @@ const RenderField = ({
                     </Label>
                 </div>
                 { touched && error && <div className = "input-field-error-msg">{error}</div>}
-                
             </FormGroup>
         );
     }

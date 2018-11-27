@@ -8,6 +8,7 @@ import { onResizeAction } from "../../redux/actions/globalActions";
 //importing Components 
 import Home from "../../components/Home/home";
 import SignUp from "../SignUp/signUp";
+import Login from "../Login/login";
 
 class Layout extends Component {
     constructor(){
@@ -34,6 +35,7 @@ class Layout extends Component {
                 <Switch>
                     <Route path="/" exact  component={Home}/>
                     <Route path="/signup" exact component={SignUp}/>
+                    <Route path="/login" exact component={Login}/>
                 </Switch>
             </div>
         );
