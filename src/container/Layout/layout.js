@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import ResponsiveUtils from "../../components/Widgets/ResponsiveUtils/responsiveUtils";
 import { connect } from "react-redux";
 import { onResizeAction } from "../../redux/actions/globalActions";
@@ -62,6 +62,6 @@ Layout.propTypes = {
 };
 
 // Exporting the Layout Component
-export default connect(mapStateToProps,mapDispatchToProps)(Layout);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Layout));
 
 

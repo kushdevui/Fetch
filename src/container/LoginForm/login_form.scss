@@ -1,0 +1,29 @@
+@import "~font-awesome/css/font-awesome.min.css";
+@import "../../global/styles/base_colors.scss";
+@import "../../global/styles/base_variables.scss";
+@import "../../global/styles/_fonts.scss";
+
+.login-form {
+    .form-group {
+        .input-fields-container {
+            align-items : center;
+            .form-icons {
+                position: absolute;
+                right: 0.5rem;
+                font-size : 1.2rem;
+                color : $icon-grey;
+            }
+        }
+
+        .input-field-error-msg {
+            color : $error-red;
+            font-size : 0.8rem;
+        }
+    }
+
+    .login-submit-btn {
+        flex: 1;
+        padding: 1rem 0rem;
+        margin: 2rem 0rem;
+    }
+}

@@ -65,10 +65,10 @@ class  NavigationBar extends Component {
                                         <NavLink href="#">Help</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="/signup?">SignUp</NavLink>
+                                        <NavLink href="/signup">SignUp</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="/login?">login</NavLink>
+                                        <NavLink href="/login">login</NavLink>
                                     </NavItem>
                                 </Nav>
                             </Collapse>
@@ -95,7 +95,7 @@ class  NavigationBar extends Component {
                                         <NavLink href="/signup">SignUp</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="#">login</NavLink>
+                                        <NavLink href="/login">login</NavLink>
                                     </NavItem>
                                 </Nav>
                             </Collapse>

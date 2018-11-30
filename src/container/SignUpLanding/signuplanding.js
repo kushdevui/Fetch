@@ -7,7 +7,6 @@
  import React , {Component} from "react";
  import PropTypes from "prop-types";
  import { ButtonGroup , Button , Row , Col } from "reactstrap";
- import { withRouter } from "react-router-dom";
 
  import "./sign_up_landing.scss";
 
@@ -17,10 +16,12 @@
         this.props = props;
     }
 
-    loginClick() {
-        console.log(this.props.history);
-        this.props.history.push("/login");
-        console.log(this.props.history);
+    static contextTypes = {
+        router: PropTypes.object
+    }
+
+    redirectToLogin = () => {
+    this.context.router.history.push("/login");
     }
 
     render () {
@@ -51,7 +52,7 @@
                     <hr/>
                     <h3>Already have an Fetch account ?</h3>
                     <ButtonGroup>
-                        <Button color="btn btn-danger button-full" onClick = {()=> this.loginClick()}>
+                        <Button color="btn btn-danger button-full" onClick = {this.redirectToLogin}>
                             Login
                         </Button>
                     </ButtonGroup>
@@ -66,5 +67,5 @@ SignupLanding.propTypes = {
     history : PropTypes.object
 };
 
-export default withRouter(SignupLanding);
+export default SignupLanding;
 
